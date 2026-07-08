@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evolución de los Videojuegos | Scrollytelling</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="preloader">
+    <div class="loader-box">
+      <span class="loader-title">LOADING EVOLUTION</span>
+      <div class="loader-bar"><span></span></div>
+      <small>Inicializando línea de tiempo gráfica...</small>
+    </div>
+  </div>
+
+  <div class="cursor"></div>
+  <div class="scanlines"></div>
+  <div class="noise"></div>
+
+  <header class="hud">
+    <div class="brand">PIXEL<span>2</span>RAY</div>
+    <nav class="era-nav" aria-label="Navegación por eras">
+      <button data-jump="0">8-BIT</button>
+      <button data-jump="1">16-BIT</button>
+      <button data-jump="2">3D</button>
+      <button data-jump="3">HD</button>
+      <button data-jump="4">RTX</button>
+    </nav>
+    <div class="progress"><span id="progressBar"></span></div>
+  </header>
+
+  <main id="experience">
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">SCROLL INTERACTIVO</p>
+        <h1>La evolución visual de los videojuegos</h1>
+        <p>Una película web controlada por scroll: de los píxeles al raytracing.</p>
+        <button class="primary-btn start-btn">Iniciar recorrido</button>
+      </div>
+    </section>
+
+    <section class="cinema" id="cinema">
+      <div class="stage">
+        <div class="glitch-layer"></div>
+        <div class="particles" id="particles"></div>
+
+        <div class="scene active" data-era="0">
+          <img src="assets/era-8bit.jpg" alt="Época 8-bit" />
+        </div>
+        <div class="scene" data-era="1">
+          <img src="assets/era-16bit.jpg" alt="Época 16-bit" />
+        </div>
+        <div class="scene" data-era="2">
+          <img src="assets/era-32-64bit.jpg" alt="Época 32/64 bits" />
+        </div>
+        <div class="scene" data-era="3">
+          <img src="assets/era-hd.jpg" alt="Época HD" />
+        </div>
+        <div class="scene" data-era="4">
+          <img src="assets/era-raytracing.jpg" alt="Época Raytracing" />
+        </div>
+
+        <div class="vignette"></div>
+        <div class="neon-orb orb-a"></div>
+        <div class="neon-orb orb-b"></div>
+
+        <article class="era-content">
+          <p class="era-kicker" id="eraKicker">ERA 01</p>
+          <h2 id="eraTitle">8-BIT</h2>
+          <p id="eraText">El inicio de mundos inolvidables construidos con píxeles, música chiptune y creatividad sin límites.</p>
+          <div class="controls">
+            <button class="action-btn" id="exploreBtn">Explorar era</button>
+            <button class="action-btn" id="graphBtn">Ver evolución gráfica</button>
+            <!-- Nuevo botón "Saber más" integrado -->
+            <button class="action-btn" id="moreInfoBtn">Saber más sobre esta época</button>
+          </div>
+        </article>
+
+        <aside class="info-panel" id="infoPanel">
+          <button class="close-panel" id="closePanel">×</button>
+          <h3 id="panelTitle">Dato curioso</h3>
+          <div id="panelText">
+            <p>Los videojuegos 8-bit demostraron que una gran experiencia no dependía del realismo, sino del diseño, el reto y la imaginación.</p>
+          </div>
+        </aside>
+
+        <div class="evolution-overlay" id="evolutionOverlay" aria-hidden="true">
+          <div class="sonic-card">
+            <button class="evolution-close close-evolution" id="evolutionClose">×</button>
+            <div class="sonic-image-wrap">
+              <img id="sonicImage" src="assets/sonic 1.png" alt="Sonic evolución gráfica">
+            </div>
+            <div class="sonic-copy">
+              <p class="sonic-kicker">EVOLUCIÓN GRÁFICA</p>
+              <h3 id="sonicTitle">Sonic en la era 8-BIT</h3>
+              <p id="sonicText">Así se veía Sonic cuando los mundos se construían con píxeles, pocos colores y mucha imaginación.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- OVERLAY DE INFORMACIÓN DETALLADA (ampliado) -->
+        <div class="info-overlay" id="infoOverlay" aria-hidden="true">
+          <div class="info-card">
+            <button class="close-info" id="closeInfo">×</button>
+            <div class="info-grid">
+              <div class="info-col">
+                <h4>Consolas destacadas</h4>
+                <ul id="consolasList"></ul>
+              </div>
+              <div class="info-col">
+                <h4>Juegos emblemáticos</h4>
+                <ul id="juegosList"></ul>
+              </div>
+              <div class="info-preview">
+                <div id="previewContent">
+                  <img id="previewImg" src="" alt="Previsualización">
+                  <h3 id="previewTitle"></h3>
+                  <p id="previewDesc"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="finale">
+      <div class="finale-inner">
+        <p class="eyebrow">FINAL RENDER</p>
+        <h2>Del píxel al reflejo realista</h2>
+        <div class="finale-split">
+          <div class="finale-block finale-block-left">
+            <p>La evolución no termina: cada generación transforma cómo jugamos, miramos y sentimos los mundos digitales.</p>
+            <div class="finale-actions">
+              <button class="primary-btn restart-btn">Reiniciar experiencia</button>
+            </div>
+          </div>
+
+          <div class="finale-separator"></div>
+
+          <div class="finale-block finale-block-right">
+            <p class="finale-invitation">Sigue viviendo la experiencia explorando una colección de videojuegos clásicos que marcaron diferentes eras visuales.</p>
+            <div class="finale-actions">
+              <a class="primary-btn explore-link" href="https://archive.org/details/internetarcade" target="_blank" rel="noopener noreferrer">Explorar clásicos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
